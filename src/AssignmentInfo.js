@@ -4,7 +4,7 @@ export const assignmentDetail =[
    date:"Tue Jan 18 2022",
   dueDate:"Sun Dec 19 2021",
   link:"https://tailwindcss.com/"},
-   
+  
  { id :"2",
    Name:"Practise Flex -01",
    date:"Sat Dec 18 2021",
