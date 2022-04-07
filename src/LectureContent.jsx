@@ -8,7 +8,7 @@ function LectureContent (props){
       <h1 className="text-gray-500">Duration: {props.duration}</h1>
       <div className="mt-3 py-2"> 
         <ul className="list-disc ml-6">
-          <li>{props.topics}</li>
+         {props.topics}
         </ul>
       </div>
       <div className="flex justify-center">
