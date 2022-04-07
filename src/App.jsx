@@ -7,7 +7,6 @@ import NotFound from "./NotFound";
 import { Navigate } from "react-router-dom";
 import AssignmentFullDetail from "./AssignmentFullDetail";
 import StudentsList from "./StudentsList";
-import StudentLayout from "./StudentLayout"
 
 import {
   BrowserRouter,
@@ -18,7 +17,6 @@ import {
 function App() {
   return (
     <BrowserRouter>
-    <StudentLayout/>
       <Routes>
         <Route path="/" element={<Navigate to="/lecture"/>}/>
         <Route path="/quiz" element={<QuizPage/>} />
