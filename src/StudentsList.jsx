@@ -1,6 +1,7 @@
 import React , {useEffect} from "react"
 import axios from "axios";
-import StudentLayout from "./StudentLayout"
+import StudentLayout from "./StudentLayout";
+import Card  from "./Card";
 
 
 function StudentsList(){
@@ -17,9 +18,13 @@ function StudentsList(){
 },[]);
     
     return(
-<div className="flex">
+        <Card>
+<div className="flex flex-wrap mx-auto">
 { studentData.map((u) => <StudentLayout student={u}/>)}
+<span className="w-80 h-80 mx-auto"></span>
+<span className="w-80 h-80 mx-auto"></span>
 </div>
+</Card>
     );
 }
 

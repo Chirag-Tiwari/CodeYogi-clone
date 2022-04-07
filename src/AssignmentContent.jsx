@@ -2,6 +2,8 @@ import React from "react"
 import Card from "./Card"
 import { Link } from "react-router-dom"
 import { useParams } from "react-router-dom"
+import {RiCheckboxCircleLine} from "react-icons/ri"
+import {HiOutlineExternalLink} from "react-icons/hi"
 
 function AssignmentContent(props){
   return(
@@ -18,8 +20,8 @@ function AssignmentContent(props){
            <h1 className="font-semibold text-green-600">Submitted</h1>
        </div>
         <div className="flex justify-center">
-           <button className="text-green-600 font-medium border-r-2 border-gray-400 px-24">Re-Submitt</button>
-           <a className="text-indigo-500 font-medium mx-24" href={props.link}>See your submission</a>
+           <button className="text-green-600 font-medium border-r-2 border-gray-400 px-24 flex"><span className="text-2xl mr-2"><RiCheckboxCircleLine/></span>Re-Submitt</button>
+           <a className="text-indigo-500 font-medium mx-24 flex underline underline-offset-2" href={props.link}><span className="text-xl mt-1"><HiOutlineExternalLink/></span>See Your Submission</a>
          </div>
       </Card>
       </Link>

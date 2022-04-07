@@ -4,7 +4,7 @@ import {AiFillLinkedin} from "react-icons/ai";
 
 function StudentLayout({student}){
     return(
-        <div className=" bg-white m-3 w-72 h-72">
+        <div className=" bg-white m-3 w-80 h-80 mx-auto ">
           <div><img className="h-52 w-72 object-cover rounded-lg" src={student.picture.large}/></div>
           <div>
           <div> <h1 className="font-bold text-xl">{student.name.title} {student.name.first} {student.name.last}</h1></div>

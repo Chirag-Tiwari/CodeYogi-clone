@@ -1,5 +1,6 @@
 import React from "react"
 import Card from "./Card"
+import {HiOutlineExternalLink} from "react-icons/hi"
 
 function LectureContent (props){
   return(
@@ -12,7 +13,7 @@ function LectureContent (props){
         </ul>
       </div>
       <div className="flex justify-center">
-        <a className="text-gray-500 font-medium" href={props.link}>Watch/Download Recording</a>
+        <a className="text-gray-500 font-medium flex" href={props.link}><span className="text-2xl mr-2"><HiOutlineExternalLink/></span>Watch/Download Recording</a>
       </div>
     </Card>
   );
