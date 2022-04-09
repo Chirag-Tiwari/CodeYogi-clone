@@ -10,13 +10,13 @@ function StudentsList(){
 
    useEffect(()=>{
     const promise = axios.get("https://randomuser.me/api/?results=13")
-    
+
     promise.then ((response) => {
     console.log(response);
     updateStudentData(response.data.results) ;
     });
 },[]);
-    
+
     return(
         <Card>
 <div className="flex flex-wrap mx-auto">
