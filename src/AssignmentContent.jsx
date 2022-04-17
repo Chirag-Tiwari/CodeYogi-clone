@@ -5,6 +5,9 @@ import {RiCheckboxCircleLine} from "react-icons/ri"
 import {HiOutlineExternalLink} from "react-icons/hi"
 
 function AssignmentContent({assignment}){
+
+const [showPopUp,updateShowPopUp] =React.useState(false);
+
   return(
     
      <Link to={`/assignment/${assignment.id}/details`}>

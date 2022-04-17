@@ -9,7 +9,6 @@ function LectureList(){
 
   useEffect(()=>{
     const promise=axios.get("https://api.codeyogi.io/batches/1/sessions",{withCredentials:true});
-
     promise.then((lecture)=>
     updateLectures(lecture.data)
     )
