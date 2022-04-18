@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { RiCheckboxCircleLine } from "react-icons/ri";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import AssignmentSubmissionPopUp from "./AssignmentSubmissionPopUp";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import { DateTime } from "luxon";
 
 function AssignmentContent({ assignment }) {
 
@@ -12,16 +13,18 @@ function AssignmentContent({ assignment }) {
 
   const [showPopUp, updateShowPopUp] = React.useState(false);
 
+  //{DateTime.fromISO(assignment.due_date).toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}
+
   const navigate = useNavigate()
 
   return (
     <div>
       <Card>
         <div onClick={() => navigate(`/assignment/${assignment.id}/details`)}>
-          <h3 className="font-medium"># {assignment.id} {assignment.title}<span className="text-gray-500">({assignment.created_at})</span></h3>
+          <h3 className="font-medium"># {assignment.id} {assignment.title}<span className="text-gray-500">({DateTime.fromISO(assignment.created_at).toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)})</span></h3>
           <div className="flex justify-between">
             <div className="my-2">
-              <h1 className="text-red-600">{assignment.due_date} </h1>
+              <h1 className="text-red-600">Due Date:{DateTime.fromISO(assignment.due_date).toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)} </h1>
               <h1 className="text-red-600">(Submission will count as late now)</h1>
             </div>
             <h1 className="font-semibold text-green-600">Submitted</h1>
