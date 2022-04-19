@@ -13,9 +13,8 @@ function AssignmentContent({ assignment }) {
 
   const [showPopUp, updateShowPopUp] = React.useState(false);
 
-  //{DateTime.fromISO(assignment.due_date).toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}
-
   const navigate = useNavigate()
+
 
   return (
     <div>
@@ -31,11 +30,11 @@ function AssignmentContent({ assignment }) {
           </div>
         </div>
         <div className="flex justify-center">
-          <button className="text-green-600 font-medium border-r-2 border-gray-400 px-24 flex" onClick={() => { updateShowPopUp(!showPopUp) }}><span className="text-2xl mr-2"><RiCheckboxCircleLine /></span>Re-Submitt</button>
+          <button className="text-green-600 font-medium border-r-2 border-gray-400 px-24 flex" onClick={() => { updateShowPopUp(true) }}><span className="text-2xl mr-2"><RiCheckboxCircleLine /></span>Re-Submitt</button>
           <a className="text-indigo-500 font-medium mx-24 flex underline underline-offset-2" href={assignment.submissions.submission_link}><span className="text-xl mt-1"><HiOutlineExternalLink /></span>See Your Submission</a>
         </div>
       </Card>
-      {showPopUp && <AssignmentSubmissionPopUp />}
+      {showPopUp && <AssignmentSubmissionPopUp setIsOpen={updateShowPopUp} />}
     </div>
   );
 }
