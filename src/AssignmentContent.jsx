@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "./Card";
-import { Link } from "react-router-dom";
 import { RiCheckboxCircleLine } from "react-icons/ri";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import AssignmentSubmissionPopUp from "./AssignmentSubmissionPopUp";

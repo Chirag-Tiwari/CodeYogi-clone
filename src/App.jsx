@@ -14,20 +14,22 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Profile from "./Profile";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to="/lecture"/>}/>
-        <Route path="/quiz" element={<QuizPage/>} />
-        <Route path="/" element ={<MainLayout/>}>
-           <Route path="lecture" element={<LectureList/>}/>
-           <Route path="assignment" element={<AssignmentList/>}/>
-           <Route path="assignment/:id/details" element={<AssignmentFullDetail/>}/>
-           <Route path="students" element={<StudentsList/>}/>
+        <Route path="/" element={<Navigate to="/lecture" />} />
+        <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/" element={<MainLayout />}>
+          <Route path="lecture" element={<LectureList />} />
+          <Route path="assignment" element={<AssignmentList />} />
+          <Route path="assignment/:id/details" element={<AssignmentFullDetail />} />
+          <Route path="students" element={<StudentsList />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
-      <Route path="*" element={<NotFound/>}/>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

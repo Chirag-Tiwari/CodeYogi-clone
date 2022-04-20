@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { lectureDetail } from "./LectureInfo";
 import LecturContent from "./LectureContent"
 import axios from "axios";
 

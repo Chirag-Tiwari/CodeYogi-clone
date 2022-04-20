@@ -1,6 +1,4 @@
 import React, { useEffect } from "react"
-import { BasicAssignmentDetail } from "./AssignmentDetails";
-import { assignmentDetail } from "./AssignmentInfo";
 import AssignmentDetailPage from "./AssignmentDetailPage"
 import { useParams } from "react-router-dom";
 import axios from "axios";

@@ -1,5 +1,4 @@
 import React, { useEffect } from "react"
-import { assignmentDetail } from "./AssignmentInfo"
 import axios from "axios";
 import AssignmentContent from "./AssignmentContent"
 
