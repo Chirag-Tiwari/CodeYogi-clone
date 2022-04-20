@@ -12,7 +12,7 @@ function AssignmentSubmissionPopUp({ setIsOpen }) {
     const data = useParams()
 
     const submitAssignment = () => {
-        axios.put(`https://api.codeyogi.io/assignment/${data.id}/submit`, { submissionLink: assignmentUrl }, { withCredentials: true });
+        axios.put(`https://api.codeyogi.io/assignment/${setIsOpen.id}/submit`, { submissionLink: assignmentUrl }, { withCredentials: true });
         setIsOpen(false);
     }
 

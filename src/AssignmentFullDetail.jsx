@@ -5,7 +5,7 @@ import axios from "axios";
 
 function AssignmentFullDetail() {
 
-  const [assignmentsDetail, updateAssignmentsDetail] = React.useState([]);
+  const [assignmentsDetail, updateAssignmentsDetail] = React.useState(undefined);
   const data = useParams()
   console.log("data", data)
   useEffect(() => {
@@ -16,11 +16,9 @@ function AssignmentFullDetail() {
     )
   }, [])
 
-  // const selectedId = +data.id
-  // const selectedAssignment = assignmentsDetail.find((assignment) => assignment.id === selectedId)
   return (
     <div>
-      {assignmentsDetail.map((detail) => < AssignmentDetailPage assignmentDetail={detail} />)}
+      {assignmentsDetail && < AssignmentDetailPage assignmentDetail={assignmentsDetail} />}
     </div>
   );
 }
