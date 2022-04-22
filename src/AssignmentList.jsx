@@ -20,7 +20,7 @@ function AssignmentList() {
     <div>
       <h1 className="mb-5 text-xl font-semibold ">Assignment List</h1>
       <div className="bg-gray-50 h-full px-32">
-        {assignments.map((assignment) => <AssignmentContent assignment={assignment} />)}
+        {assignments.map((assignment) => <AssignmentContent assignment={assignment} key={assignment.id} />)}
       </div>
     </div>
   );

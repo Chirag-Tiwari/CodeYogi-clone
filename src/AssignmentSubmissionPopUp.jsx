@@ -1,19 +1,35 @@
 
-import React from "react";
+import { useState } from "react";
 import Button from "./Button";
 import axios from "axios"
 import { useParams } from "react-router-dom";
+import { string } from 'yup';
+import Input from "./Input";
 
 function AssignmentSubmissionPopUp({ setIsOpen }) {
-    const [assignmentUrl, setAssignmentUrl] = React.useState('')
+    const [assignmentUrl, setAssignmentUrl] = useState('');
+    const [isValidUrl, setIsValidUrl] = useState(true);
+
     const inputChange = (event) => {
         setAssignmentUrl(event.target.value)
     }
+
     const data = useParams()
 
     const submitAssignment = () => {
-        axios.put(`https://api.codeyogi.io/assignment/${setIsOpen.id}/submit`, { submissionLink: assignmentUrl }, { withCredentials: true });
+
+        axios.put(`https://api.codeyogi.io/assignment/${setIsOpen.Id}/submit`, { submissionLink: assignmentUrl }, { withCredentials: true });
         setIsOpen(false);
+
+        const urlValidator = string().url("please enter a valid url");
+
+        try {
+            urlValidator.validateSync(isValidUrl);
+        } catch (e) {
+            setIsValidUrl(e.message);
+            return;
+        }
+
     }
 
     return (

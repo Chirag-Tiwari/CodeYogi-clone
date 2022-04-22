@@ -14,6 +14,9 @@ function AssignmentContent({ assignment }) {
 
   const navigate = useNavigate()
 
+  const xyz = () => {
+    updateShowPopUp(false)
+  }
 
   return (
     <div>
