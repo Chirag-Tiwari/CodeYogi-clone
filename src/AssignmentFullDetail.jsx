@@ -6,7 +6,7 @@ import axios from "axios";
 function AssignmentFullDetail() {
 
   const [assignmentsDetail, updateAssignmentsDetail] = React.useState(undefined);
-  const data = useParams()
+  const data = useParams();
   console.log("data", data)
   useEffect(() => {
 

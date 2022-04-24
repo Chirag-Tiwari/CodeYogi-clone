@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import axios from "axios";
 import AssignmentContent from "./AssignmentContent"
-
+import { getAssignment } from "./Api"
 
 function AssignmentList() {
 
@@ -9,11 +9,11 @@ function AssignmentList() {
 
   useEffect(() => {
 
-    const promise = axios.get("https://api.codeyogi.io/batches/1/assignments", { withCredentials: true, });
-    promise.then((assignment) =>
-      updateAssignments(assignment.data)
-    )
-  }, [])
+    const promise = getAssignment()
+    promise.then((assignment) => {
+      updateAssignments(assignment);
+    })
+  }, []);
 
 
   return (

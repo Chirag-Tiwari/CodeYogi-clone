@@ -21,6 +21,7 @@ function AssignmentContent({ assignment }) {
   return (
     <div>
       <Card>
+
         <div onClick={() => navigate(`/assignment/${assignment.id}/details`)}>
           <h3 className="font-medium"># {assignment.id} {assignment.title}<span className="text-gray-500">({DateTime.fromISO(assignment.created_at).toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)})</span></h3>
           <div className="flex justify-between">
@@ -36,7 +37,7 @@ function AssignmentContent({ assignment }) {
           <a className="text-indigo-500 font-medium mx-24 flex underline underline-offset-2" href={assignment.submissions.submission_link}><span className="text-xl mt-1"><HiOutlineExternalLink /></span>See Your Submission</a>
         </div>
       </Card>
-      {showPopUp && <AssignmentSubmissionPopUp setIsOpen={updateShowPopUp} />}
+      {showPopUp && <AssignmentSubmissionPopUp setIsOpen={updateShowPopUp} Id={assignment.id} />}
     </div>
   );
 }

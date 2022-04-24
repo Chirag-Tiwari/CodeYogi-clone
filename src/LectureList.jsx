@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
 import LecturContent from "./LectureContent"
 import axios from "axios";
+import { getLecture } from "./Api"
 
 function LectureList() {
 
   const [lectures, updateLectures] = React.useState([]);
 
   useEffect(() => {
-    const promise = axios.get("https://api.codeyogi.io/batches/1/sessions", { withCredentials: true });
+    const promise = getLecture()
     promise.then((lecture) =>
-      updateLectures(lecture.data)
+      updateLectures(lecture)
     )
   }, [])
 
