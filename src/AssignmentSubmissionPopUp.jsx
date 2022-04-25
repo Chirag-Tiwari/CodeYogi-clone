@@ -16,7 +16,9 @@ function AssignmentSubmissionPopUp({ setIsOpen, ...props }) {
 
     const data = useParams()
 
-    const submitAssignment = () => {
+    const submitAssignment = (event) => {
+
+        event.preventDefault();
 
         const urlValidator = string().url("please enter a valid url");
 
@@ -29,22 +31,23 @@ function AssignmentSubmissionPopUp({ setIsOpen, ...props }) {
 
         axios.put(`https://api.codeyogi.io/assignment/${props.Id}/submit`, { submissionLink: assignmentUrl }, { withCredentials: true });
         setIsOpen(false);
+
     }
 
     console.log(props.Id)
 
     return (
-        <div className="bg-white p-4 rounded-md w-2/5 h-44 border border-gray-600 fixed top-1/4 left-1/4 items-center ">
+        <form onSubmit={submitAssignment} className="bg-white p-4 rounded-md w-2/5 h-44 border border-gray-600 fixed top-1/4 left-1/4 items-center ">
             <div className="flex flex-col ">
                 <div className="flex border-y border-gray-200 py-5">
                     <h2 className="px-3 py-1 font-medium text-gray-500">Submission Link</h2>
                     <Input error={errorMessage} value={assignmentUrl} onChange={inputChange} className="w-full px-3 py-1 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-r-md" placeholder="Submission Link" type="text" />
                 </div>
                 <div className="py-4">
-                    <Button onClick={submitAssignment}>Submit</Button>
+                    <Button>Submit</Button>
                 </div>
             </div>
-        </div>
+        </form>
     );
 }
 
