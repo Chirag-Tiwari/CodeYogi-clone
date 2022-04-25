@@ -1,11 +1,13 @@
 import React, { useEffect } from "react"
 import axios from "axios";
 import AssignmentContent from "./AssignmentContent"
-import { getAssignment } from "./Api"
+import { getAssignment, getStorage } from "./Api"
 
 function AssignmentList() {
 
-  const [assignments, updateAssignments] = React.useState([]);
+  const cachedData = getStorage("assignments") || [];
+
+  const [assignments, updateAssignments] = React.useState(cachedData);
 
   useEffect(() => {
 

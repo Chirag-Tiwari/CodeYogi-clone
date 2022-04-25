@@ -1,15 +1,21 @@
 import axios from "axios";
 
-export const getAssignment = () => {
-    const promise = axios.get("https://api.codeyogi.io/batches/1/assignments", { withCredentials: true, });
+const storage = (data, key) => {
+    localStorage.setItem(key, JSON.stringify(data));
+}
 
-    const assignmentPromise = promise.then((assignment) => {
-        const assignments = assignment.data;
-        localStorage.setItem("assignments", JSON.stringify(assignments));
+export const getStorage = (key) => {
+    return JSON.parse(localStorage.getItem(key))
+}
 
-        return assignments;
-    });
-    return assignmentPromise;
+export const getAssignment = async () => {
+    const promise = await axios.get("https://api.codeyogi.io/batches/1/assignments", { withCredentials: true, });
+
+    const assignments = promise.data;
+
+    storage(assignments, "assignments");
+    return assignments;
+
 }
 
 export const getLecture = () => {
@@ -21,3 +27,8 @@ export const getLecture = () => {
         return lectures
     });
 }
+
+export const putAssignment = (URL) => {
+    axios.put(`https://api.codeyogi.io/assignment/${props.Id}/submit`, { submissionLink: URL }, { withCredentials: true });
+}
+
