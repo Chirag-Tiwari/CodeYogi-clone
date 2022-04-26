@@ -1,6 +1,6 @@
 import React from "react";
 
-function ProfileRow(props) {
+function ProfileBox(props) {
     return (
         <div className="mt-5 border-t border-gray-200 flex justify-between items-center pt-4">
             <h3 className="text-sm font-medium text-gray-500">{props.children}</h3>
@@ -10,4 +10,4 @@ function ProfileRow(props) {
     );
 }
 
-export default ProfileRow; 
+export default ProfileBox; 
