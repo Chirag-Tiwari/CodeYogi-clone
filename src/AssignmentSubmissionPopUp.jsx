@@ -5,14 +5,12 @@ import axios from "axios"
 import { useParams } from "react-router-dom";
 import { string } from 'yup';
 import Input from "./Input";
+import { useForms } from "./forms";
 
 function AssignmentSubmissionPopUp({ setIsOpen, ...props }) {
-    const [assignmentUrl, setAssignmentUrl] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
-    const inputChange = (event) => {
-        setAssignmentUrl(event.target.value)
-    }
+    const { formData, handleChange } = useForms({ URL: "" })
 
     const data = useParams()
 
@@ -23,13 +21,13 @@ function AssignmentSubmissionPopUp({ setIsOpen, ...props }) {
         const urlValidator = string().url("please enter a valid url");
 
         try {
-            urlValidator.validateSync(assignmentUrl);
+            urlValidator.validateSync(formData.URL);
         } catch (e) {
             setErrorMessage(e.message);
             return;
         }
 
-        axios.put(`https://api.codeyogi.io/assignment/${props.Id}/submit`, { submissionLink: assignmentUrl }, { withCredentials: true });
+        axios.put(`https://api.codeyogi.io/assignment/${props.Id}/submit`, { submissionLink: formData.URL }, { withCredentials: true });
         setIsOpen(false);
 
     }
@@ -41,7 +39,7 @@ function AssignmentSubmissionPopUp({ setIsOpen, ...props }) {
             <div className="flex flex-col ">
                 <div className="flex border-y border-gray-200 py-5">
                     <h2 className="px-3 py-1 font-medium text-gray-500">Submission Link</h2>
-                    <Input error={errorMessage} value={assignmentUrl} onChange={inputChange} className="w-full px-3 py-1 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-r-md" placeholder="Submission Link" type="text" />
+                    <Input name="URL" error={errorMessage} value={formData.URL} onChange={handleChange} className="w-full px-3 py-1 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-r-md" placeholder="Submission Link" type="text" />
                 </div>
                 <div className="py-4">
                     <Button>Submit</Button>
