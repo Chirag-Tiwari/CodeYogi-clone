@@ -14,7 +14,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Profile from "./Profile";
+import ProfileLayout from "./ProfileLayout";
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
           <Route path="assignment" element={<AssignmentList />} />
           <Route path="assignment/:id/details" element={<AssignmentFullDetail />} />
           <Route path="students" element={<StudentsList />} />
-          <Route path="profile" element={<Profile />} />
+          <Route path="profile" element={<ProfileLayout />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
