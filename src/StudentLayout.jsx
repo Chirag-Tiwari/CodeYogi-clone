@@ -13,7 +13,6 @@ function StudentLayout({ student }) {
       </div>
       <div>
         <div>
-          {" "}
           <h1 className="font-bold text-xl">
             {student.name.title} {student.name.first} {student.name.last}
           </h1>

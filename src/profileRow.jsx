@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import axios from "axios";
+import { DateTime } from "luxon";
 import ProfileLayout from "./ProfileLayout";
 import { getProfile, getStorage } from "./Api";
 
@@ -14,6 +14,24 @@ function ProfileRow() {
       updatePersonalProfile(detail);
     });
   }, []);
+
+  //   const cleanedUpProfile = personalProfile.map((u) => {
+  //     const user = {
+  //       id: u.id,
+  //       first_name: u.first_name,
+  //       last_name: u.last_name,
+  //       email: u.email,
+  //       institute: u.institute.name,
+  //       year_of_pass_out: u.year_of_pass_out,
+  //       phone_no: u.phone_no,
+  //       date_of_birth: DateTime.fromISO(u.date_of_birth).toLocaleString(
+  //         DateTime.DATE_MED
+  //       ),
+  //       institute_roll_no: u.institute_roll_no,
+  //       branch: u.branch,
+  //     };
+  //     return user;
+  //   });
 
   return (
     <div>{personalProfile && <ProfileLayout user={personalProfile} />}</div>

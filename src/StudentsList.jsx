@@ -21,7 +21,7 @@ function StudentsList() {
     <Card>
       <div className="flex flex-wrap mx-auto">
         {studentData.map((u) => (
-          <StudentLayout student={u} />
+          <StudentLayout student={u} key={u.id && u.name.first} />
         ))}
         <span className="w-80 h-80 mx-auto"></span>
         <span className="w-80 h-80 mx-auto"></span>

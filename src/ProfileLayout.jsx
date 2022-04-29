@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "./Button";
 import Card from "./Card";
 import ProfileBox from "./ProfileBox";
-import { Formik } from "formik";
+import { Form, Formik } from "formik";
 import { number, object, string } from "yup";
+import AlertContext from "./AlertContext";
+import { DateTime } from "luxon";
 
 function ProfileLayout({ user }) {
+  const { setMessage } = useContext(AlertContext);
+
   const update = (data) => {
     console.log("data", data);
+    setMessage("login successfully");
   };
 
   const validationSchema = object().shape({
@@ -17,7 +22,7 @@ function ProfileLayout({ user }) {
     institute: string().required(),
     year_of_pass_out: number().positive(),
     phone_no: number().required().positive(),
-    date_of_birth: number().positive().integer(),
+
     institute_roll_no: number().required().positive().integer(),
     branch: string().required(),
   });
@@ -29,7 +34,9 @@ function ProfileLayout({ user }) {
     institute: user.institute.name,
     year_of_pass_out: user.year_of_pass_out,
     phone_no: user.phone_no,
-    date_of_birth: user.date_of_birth,
+    date_of_birth: DateTime.fromISO(user.date_of_birth).toLocal(
+      DateTime.DATE_FULL
+    ),
     institute_roll_no: user.institute_roll_no,
     branch: user.branch,
   };
@@ -41,11 +48,11 @@ function ProfileLayout({ user }) {
           Personal Details
         </h1>
         <Formik
-          onSubmit={update()}
+          onSubmit={update}
           validationSchema={validationSchema}
           initialValues={initialValues}
         >
-          <>
+          <Form>
             <ProfileBox name="first_name">
               First Name<span className="text-red-500">*</span>
             </ProfileBox>
@@ -99,7 +106,7 @@ function ProfileLayout({ user }) {
             <div className="mt-5 border-t border-gray-200 items-center pt-4">
               <Button>Update</Button>
             </div>
-          </>
+          </Form>
         </Formik>
       </Card>
     </div>
