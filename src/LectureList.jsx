@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import LecturContent from "./LectureContent"
 import axios from "axios";
-import { getLecture } from "./Api"
+import { getLecture ,getStorage } from "./Api"
 
 function LectureList() {
 
-  const [lectures, updateLectures] = React.useState([]);
+  const cachedData = getStorage("lectures") || [];
+
+  const [lectures, updateLectures] = React.useState(cachedData);
 
   useEffect(() => {
     const promise = getLecture()

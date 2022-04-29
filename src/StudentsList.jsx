@@ -2,18 +2,20 @@ import React, { useEffect } from "react"
 import axios from "axios";
 import StudentLayout from "./StudentLayout";
 import Card from "./Card";
+import {getStudent ,getStorage} from "./Api"
 
 
 function StudentsList() {
+    const cachedData = getStorage("students") || [];
 
-    const [studentData, updateStudentData] = React.useState([]);
+    const [studentData, updateStudentData] = React.useState(cachedData);
 
     useEffect(() => {
-        const promise = axios.get("https://randomuser.me/api/?results=13")
+        const promise = getStudent()
 
         promise.then((response) => {
             console.log(response);
-            updateStudentData(response.data.results);
+            updateStudentData(response);
         });
     }, []);
 

@@ -8,7 +8,6 @@ import { DateTime } from "luxon";
 
 function AssignmentContent({ assignment }) {
 
-  //to={`/assignment/${assignment.id}/details`}
 
   const [showPopUp, updateShowPopUp] = React.useState(false);
 
@@ -22,7 +21,7 @@ function AssignmentContent({ assignment }) {
     <div>
       <Card>
 
-        <div onClick={() => navigate(`/assignment/${assignment.id}/details`)}>
+        <div onClick={() => navigate(`/assignment/${assignment.id}`)}>
           <h3 className="font-medium"># {assignment.id} {assignment.title}<span className="text-gray-500">({DateTime.fromISO(assignment.created_at).toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)})</span></h3>
           <div className="flex justify-between">
             <div className="my-2">

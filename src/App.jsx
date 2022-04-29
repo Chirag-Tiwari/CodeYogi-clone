@@ -7,14 +7,14 @@ import NotFound from "./NotFound";
 import { Navigate } from "react-router-dom";
 import AssignmentFullDetail from "./AssignmentFullDetail";
 import StudentsList from "./StudentsList";
-
+import ProfileRow from "./ProfileRow";
 
 import {
   BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
-import ProfileLayout from "./ProfileLayout";
+
 
 function App() {
   return (
@@ -25,9 +25,9 @@ function App() {
         <Route path="/" element={<MainLayout />}>
           <Route path="lecture" element={<LectureList />} />
           <Route path="assignment" element={<AssignmentList />} />
-          <Route path="assignment/:id/details" element={<AssignmentFullDetail />} />
+          <Route path="assignment/:id" element={<AssignmentFullDetail />} />
           <Route path="students" element={<StudentsList />} />
-          <Route path="profile" element={<ProfileLayout />} />
+          <Route path="profile" element={<ProfileRow />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
