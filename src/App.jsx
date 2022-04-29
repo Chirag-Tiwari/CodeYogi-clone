@@ -9,12 +9,7 @@ import AssignmentFullDetail from "./AssignmentFullDetail";
 import StudentsList from "./StudentsList";
 import ProfileRow from "./ProfileRow";
 
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
